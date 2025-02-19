@@ -71,7 +71,6 @@ const ModalEdicao = ({ investimento, fecharModal }: ModalEdicaoProps) => {
     );
 };
 
-// Estilos
 const modalOverlay: React.CSSProperties = {
     position: "fixed",
     top: 0,

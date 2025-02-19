@@ -14,7 +14,6 @@ const CadastroInvestimento = () => {
         e.preventDefault();
         setErros({});
 
-        // Validação dos campos
         const novosErros: Record<string, string> = {};
         if (!nome) novosErros.nome = "Nome é obrigatório";
         if (!tipo) novosErros.tipo = "Tipo é obrigatório";
