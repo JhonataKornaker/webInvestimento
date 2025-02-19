@@ -28,23 +28,23 @@ const CadastroInvestimento = () => {
         const valorNumerico = parseFloat(valor);
 
         try {
-            await cadastrarInvestimento({ nome, tipo, valor: valorNumerico, data });
-            alert("Investimento cadastrado com sucesso!");
-            setNome("");
-            setTipo("");
-            setValor("");
-            setData("");
-            navigate("/");
-        } catch (error: any) {
-            if (error.response?.status === 400 && error.response.data?.fieldErrors) {
-                const formattedErrors = error.response.data.fieldErrors.reduce((acc: Record<string, string>, err: { field: string; defaultMessage: string }) => {
-                    acc[err.field] = err.defaultMessage;
-                    return acc;
-                }, {});
-                setErros(formattedErrors);
-            } else {
-                alert("Erro ao cadastrar investimento");
+            const resultado = await cadastrarInvestimento({ nome, tipo, valor: valorNumerico, data });
+
+            if (resultado.sucesso) {
+                alert("Investimento cadastrado com sucesso!");
+                setNome("");
+                setTipo("");
+                setValor("");
+                setData("");
+                navigate("/");
+            } else if (resultado.erros) {
+                const mensagensErro = Object.values(resultado.erros).join("\n");
+                alert(`Erros de validação:\n${mensagensErro}`);
+                setErros(resultado.erros);
             }
+        } catch (error) {
+            console.error("Erro ao cadastrar investimento:", error);
+            alert("Erro ao cadastrar investimento. Verifique o console para mais detalhes.");
         }
     };
 
