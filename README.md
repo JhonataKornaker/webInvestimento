@@ -19,14 +19,10 @@ Esta é o front end em React Typescript para gerenciar investimentos. Ela permit
 - **Exclusão de Investimentos:**
     - Remove um investimento do sistema.
 
-- **Validações:**
-    - O valor investido deve ser maior que 0.
-    - A data do investimento não pode estar no futuro.
-
 ## Tecnologias Utilizadas
 
-- **React** Framework para desenvolvimento de aplicações Java.
-- **TypeScript:** Banco de dados relacional para armazenamento dos dados.
+- **React:** Biblioteca JavaScript para construção de interfaces de usuário.
+- **TypeScript:** Extensão de JavaScript que adiciona tipagem estática ao código.
 
 ## Configuração
 
@@ -45,7 +41,7 @@ Esta é o front end em React Typescript para gerenciar investimentos. Ela permit
     ```bash
    npm run dev
    
-2. **Acesse o Swagger para testar a API**
+2. **Acesse a url para testar**
 
     ```bash
    http://localhost:5173/
